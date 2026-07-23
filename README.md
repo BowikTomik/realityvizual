@@ -5,21 +5,29 @@ marketingové video na web, realitní portály i sociální sítě — bez kamer
 
 Statický web. Žádný build, žádné závislosti, žádný framework.
 
-## Soubory
+## Struktura
 
-| Soubor | Co to je |
-|---|---|
-| `index.html` | Kompletní stránka včetně objednávkového kvízu |
-| `styles.css` | Všechny styly (design tokeny, sekce, kvíz, responzivita) |
-| `script.js` | Navigace, kalkulačka úspory, galerie ukázek, kvíz |
-| `above-the-fold.html` | Samostatná verze jen s hlavičkou a hero sekcí (vše inline) |
+Web žije ve složce verze. Nasazuje se vždy ta, která je uvedená v `netlify.toml`.
+
+```
+v1/                     ← aktuálně nasazovaná verze
+  index.html            Kompletní stránka včetně objednávkového kvízu
+  styles.css            Všechny styly (design tokeny, sekce, kvíz, responzivita)
+  script.js             Navigace, kalkulačka úspory, galerie ukázek, kvíz
+  above-the-fold.html   Samostatná verze jen s hlavičkou a hero sekcí (vše inline)
+netlify.toml            Určuje, která složka se publikuje
+README.md
+```
+
+Až vznikne `v2/`, přepíše se `publish` v `netlify.toml` a starší verze zůstane v repu
+jako reference.
 
 ## Spuštění lokálně
 
-Jakýkoli statický server. Například:
+Jakýkoli statický server, spuštěný nad složkou verze:
 
 ```bash
-python -m http.server 5500
+python -m http.server 5500 --directory v1
 ```
 
 Pak otevři <http://localhost:5500>.
@@ -27,7 +35,8 @@ Pak otevři <http://localhost:5500>.
 ## Nasazení na Netlify
 
 1. Netlify → **Add new site → Import an existing project** → propoj tenhle repozitář.
-2. Build command nech **prázdný**, publish directory nastav na `.` (kořen).
+2. Build command nech **prázdný**. Publish directory si Netlify načte z `netlify.toml` (`v1`),
+   takže do něj nemusíš sahat.
 3. Deploy.
 
 ### Objednávky (Netlify Forms)

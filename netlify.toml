@@ -1,6 +1,7 @@
-# Statický web bez build kroku — publikuje se kořen repozitáře.
+# Statický web bez build kroku.
+# Nasazuje se obsah složky v1/ — až vznikne v2, stačí přepsat tenhle řádek.
 [build]
-  publish = "."
+  publish = "v1"
 
 [[headers]]
   for = "/*"
