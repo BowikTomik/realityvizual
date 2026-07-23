@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="cs" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RealityVizual — z fotek nemovitosti hotové video do 48 hodin</title>
+<meta name="description" content="RealityVizual promění fotky nemovitosti pořízené mobilem v hotové marketingové video na web, realitní portály i sociální sítě. Bez kameramana, obvykle do 48 hodin.">
+<meta name="theme-color" content="#294536">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%23294536'/%3E%3Cpath%20d='M13%2010l9%206-9%206z'%20fill='%23B68A57'/%3E%3C/svg%3E">
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RealityVizual — above the fold (hlavička + hero)
+   Paleta: warm ivory + forest green + pískově zlatý akcent
+   Fonty: Fraunces (display) + Sora (text/UI)
+   ============================================================ */
+
+:root {
+  --bg: #F5F2EA;
+  --surface: #E9E3D7;
+  --primary: #294536;
+  --primary-hover: #1E3529;
+  --ink: #1D2621;
+  --muted: #5E6862;
+  --muted-soft: #69736C;
+  --accent: #B68A57;
+  --accent-ink: #9C7342;
+  --border: #D4CDC0;
+  --light: #FFFDF8;
+
+  --cream-90: rgba(255, 253, 248, 0.9);
+  --cream-75: rgba(255, 253, 248, 0.75);
+  --cream-55: rgba(255, 253, 248, 0.55);
+  --cream-line: rgba(255, 253, 248, 0.14);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Sora", -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --fs-display: clamp(44px, 6.2vw, 84px);
+  --fs-lead: clamp(16.5px, 1.3vw, 19px);
+
+  --r-lg: 24px;
+  --r-md: 16px;
+  --r-sm: 10px;
+
+  --wrap: 1180px;
+  --shadow-float: 0 18px 40px -18px rgba(24, 36, 28, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img, svg { max-width: 100%; display: block; }
+h1 { margin: 0; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+a { color: inherit; }
+
+::selection { background: var(--accent); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 32px);
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: 100;
+  background: var(--light);
+  color: var(--primary);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus-visible { top: 0; }
+
+/* ---------- tlačítka ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-light { background: var(--light); color: var(--primary); }
+.btn-light:hover { background: #ffffff; }
+.btn-sm { min-height: 44px; padding: 10px 20px; font-size: 14.5px; }
+
+/* ---------- hlavička ---------- */
+
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--primary);
+  transition: box-shadow 0.25s ease;
+}
+.site-head.scrolled { box-shadow: 0 1px 0 var(--cream-line), 0 12px 32px -12px rgba(15, 24, 19, 0.5); }
+
+.site-head .wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 76px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.005em;
+  color: var(--light);
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--light);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.brand-mark::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid var(--primary);
+  border-block: 6.5px solid transparent;
+  margin-left: 3px;
+}
+.brand em { font-style: normal; color: var(--accent); }
+
+.main-nav { display: flex; gap: 30px; margin-left: auto; }
+.main-nav a {
+  color: var(--cream-75);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 2px;
+  transition: color 0.2s ease;
+}
+.main-nav a:hover { color: var(--light); }
+
+.head-cta { flex: none; }
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 253, 248, 0.35);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+.nav-toggle span {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--light);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+}
+.nav-toggle span:nth-child(1) { top: 17px; }
+.nav-toggle span:nth-child(2) { top: 26px; }
+body.menu-open .nav-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+body.menu-open .nav-toggle span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 76px 0 0;
+  z-index: 55;
+  background: var(--primary);
+  padding: 40px clamp(20px, 6vw, 32px);
+  flex-direction: column;
+  gap: 8px;
+}
+body.menu-open .mobile-menu { display: flex; }
+body.menu-open { overflow: hidden; }
+.mobile-menu a:not(.btn) {
+  color: var(--light);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--cream-line);
+}
+.mobile-menu .btn { margin-top: 28px; align-self: flex-start; }
+.mobile-menu .mm-note { margin-top: auto; color: var(--cream-55); font-size: 13px; }
+
+/* ---------- hero ---------- */
+
+.hero {
+  background: var(--primary);
+  color: var(--light);
+  padding: clamp(56px, 8vw, 96px) 0 clamp(64px, 8vw, 110px);
+  overflow: clip;
+}
+.hero-inner { text-align: center; }
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-75);
+  margin-bottom: 26px;
+}
+.hero-kicker::before,
+.hero-kicker::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  max-width: 15ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+.hero h1 .gold { font-style: italic; font-weight: 500; color: var(--accent); }
+
+.hero-lead {
+  max-width: 62ch;
+  margin: 26px auto 0;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+  color: var(--cream-75);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: 36px;
+}
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 4px;
+  color: var(--cream-90);
+  font-weight: 600;
+  font-size: 15.5px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 253, 248, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.link-arrow:hover { color: var(--accent); border-color: var(--accent); }
+
+.hero-trust { margin: 26px auto 0; font-size: 13.5px; color: var(--cream-55); }
+.hero-trust b { color: var(--cream-75); font-weight: 500; }
+.hero-trust .dot { margin-inline: 10px; color: var(--accent); }
+
+/* --- studio mockup: fotky -> film --- */
+
+.studio { position: relative; max-width: 1040px; margin: clamp(48px, 6vw, 72px) auto 0; }
+
+.studio-board {
+  background: var(--primary-hover);
+  border: 1px solid var(--cream-line);
+  border-radius: var(--r-lg);
+  padding: clamp(22px, 3.4vw, 36px);
+  display: grid;
+  grid-template-columns: 205px 116px minmax(0, 1fr);
+  gap: clamp(18px, 2.5vw, 28px);
+  align-items: center;
+}
+
+.studio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-55);
+}
+.studio-label::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+.shots { display: grid; gap: 12px; }
+.shot { text-align: left; }
+.shot .scene { height: 74px; border-radius: var(--r-sm); border: 1px solid var(--cream-line); }
+.shot:nth-child(odd) .scene { transform: rotate(-1.1deg); }
+.shot:nth-child(even) .scene { transform: rotate(1deg); }
+.shot figcaption { margin-top: 6px; font-size: 11px; color: var(--cream-55); }
+
+.studio-flow { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.flow-arrow { width: 100%; height: auto; color: var(--accent); }
+.flow-chip {
+  background: var(--light);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-float);
+}
+
+.film { background: #15251C; border-radius: var(--r-md); padding: 16px 14px; position: relative; }
+.film::before,
+.film::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 5px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(90deg, rgba(255, 253, 248, 0.28) 0 12px, transparent 12px 24px);
+}
+.film::before { top: 6px; }
+.film::after { bottom: 6px; }
+
+.screen { position: relative; aspect-ratio: 16 / 9; border-radius: 9px; overflow: hidden; }
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 -46px 60px -30px rgba(16, 26, 20, 0.55), inset 0 20px 50px -30px rgba(16, 26, 20, 0.3);
+  pointer-events: none;
+}
+
+.play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--cream-90);
+  box-shadow: 0 12px 30px rgba(12, 22, 16, 0.4);
+  z-index: 2;
+}
+.play::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 18px solid var(--primary);
+  border-block: 11px solid transparent;
+  translate: 3px 0;
+}
+.play-sm { width: 50px; height: 50px; }
+.play-sm::before { border-left-width: 14px; border-block-width: 9px; translate: 2px 0; }
+
+.player-info { display: flex; align-items: center; gap: 12px; margin-top: 14px; font-size: 12.5px; color: var(--cream-75); }
+.player-info .time { margin-left: auto; color: var(--cream-55); font-variant-numeric: tabular-nums; }
+.format-chip {
+  border: 1px solid rgba(182, 138, 87, 0.65);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.prog { position: relative; height: 4px; margin-top: 12px; border-radius: 2px; background: rgba(255, 253, 248, 0.16); }
+.prog i { position: absolute; top: -3px; width: 2px; height: 10px; background: rgba(255, 253, 248, 0.35); }
+.prog-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 36%;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: playhead 16s linear infinite;
+}
+.prog-fill::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--light);
+  box-shadow: 0 0 0 3px rgba(182, 138, 87, 0.4);
+}
+@keyframes playhead { from { width: 4%; } to { width: 96%; } }
+
+.chapters { display: flex; justify-content: space-between; margin-top: 8px; font-size: 10.5px; letter-spacing: 0.04em; color: var(--cream-55); }
+
+.phone {
+  position: absolute;
+  right: -30px;
+  bottom: -38px;
+  width: 168px;
+  background: #10201A;
+  border: 1px solid rgba(255, 253, 248, 0.22);
+  border-radius: 26px;
+  padding: 9px;
+  box-shadow: var(--shadow-float);
+  transform: rotate(2deg);
+  z-index: 3;
+}
+.phone-screen { position: relative; aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; }
+.phone-tag { margin-top: 8px; text-align: center; font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); }
+
+/* ---------- CSS "interiéry" ---------- */
+
+.scene {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 24% 30%, rgba(252, 244, 220, 0.5), transparent 55%),
+    linear-gradient(180deg, #EFE8D8 0%, #E5DAC5 63%, #C9BCA2 63%, #B4A78C 100%);
+}
+.scene::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  top: 12%;
+  width: 24%;
+  height: 42%;
+  border: 2px solid #A2947A;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(162, 148, 122, 0.9) 47% 53%, transparent 53%),
+    linear-gradient(180deg, #FBF3DE, #EFE1BE);
+}
+.scene::after {
+  content: "";
+  position: absolute;
+  left: 48%;
+  right: 9%;
+  bottom: 9%;
+  height: 25%;
+  border-radius: 8px 8px 4px 4px;
+  background: #3F4F41;
+  box-shadow: -10px 6px 0 -4px rgba(46, 58, 48, 0.55);
+}
+
+.scene--kuchyn::before { left: 58%; width: 22%; top: 10%; height: 36%; }
+.scene--kuchyn::after {
+  left: 8%;
+  right: 46%;
+  height: 30%;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #56604F 0 34%, #4A5446 34% 100%);
+  box-shadow: none;
+}
+
+.scene--loznice::before { left: 66%; width: 20%; height: 38%; }
+.scene--loznice::after {
+  left: 10%;
+  right: 34%;
+  height: 30%;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #8C7C60 0 26%, #D9CDB4 26% 100%);
+  box-shadow: none;
+}
+
+.scene--exterier {
+  background:
+    radial-gradient(100% 70% at 70% 10%, rgba(252, 246, 226, 0.7), transparent 55%),
+    linear-gradient(180deg, #EDE8D8 0 62%, #CEC2A6 62% 100%);
+}
+.scene--exterier::before {
+  left: 20%;
+  right: 20%;
+  width: auto;
+  top: auto;
+  bottom: 20%;
+  height: 52%;
+  border: none;
+  border-radius: 0;
+  clip-path: polygon(0 34%, 50% 0, 100% 34%, 100% 100%, 0 100%);
+  background:
+    linear-gradient(#3E4E40, #3E4E40) 50% 100% / 16% 42% no-repeat,
+    linear-gradient(180deg, #3A4A3E 0 34%, #E6DBC2 34% 100%);
+}
+.scene--exterier::after {
+  left: 4%;
+  right: 4%;
+  bottom: 6%;
+  height: 12%;
+  border-radius: 999px;
+  background: #52604D;
+  box-shadow: none;
+}
+
+/* ---------- vstupní animace ---------- */
+
+.js .hero-inner > * { animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+.js .hero-inner > *:nth-child(2) { animation-delay: 0.07s; }
+.js .hero-inner > *:nth-child(3) { animation-delay: 0.14s; }
+.js .hero-inner > *:nth-child(4) { animation-delay: 0.21s; }
+.js .hero-inner > *:nth-child(5) { animation-delay: 0.28s; }
+.js .studio { animation: rise 0.9s 0.3s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- responzivita ---------- */
+
+@media (max-width: 1080px) {
+  .phone { right: 6px; bottom: -30px; width: 148px; }
+}
+
+@media (max-width: 960px) {
+  .main-nav, .head-cta { display: none; }
+  .nav-toggle { display: block; }
+}
+
+@media (max-width: 860px) {
+  .studio-board { grid-template-columns: 1fr; gap: 22px; }
+  .shots { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .shot .scene { height: 64px; }
+  .shot figcaption { font-size: 10px; }
+  .studio-flow { flex-direction: row; justify-content: center; }
+  .flow-arrow { display: none; }
+  .phone { display: none; }
+}
+
+@media (max-width: 560px) {
+  .shots { grid-template-columns: repeat(2, 1fr); }
+  .shot .scene { height: 76px; }
+  .hero-actions .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+  .prog-fill { animation: none; width: 36%; }
+}
+</style>
+</head>
+<body>
+
+<a href="#hero" class="skip-link">Přeskočit na obsah</a>
+
+<!-- ======================= HLAVIČKA ======================= -->
+<header class="site-head" id="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="RealityVizual — domů">
+      <span class="brand-mark" aria-hidden="true"></span>
+      Reality<em>Vizual</em>
+    </a>
+    <nav class="main-nav" aria-label="Hlavní navigace">
+      <a href="#jak-to-funguje">Jak to funguje</a>
+      <a href="#ukazky">Ukázky</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#kalkulacka">Kalkulačka</a>
+      <a href="#faq">Časté dotazy</a>
+    </nav>
+    <a href="#cenik" class="btn btn-light btn-sm head-cta">Objednat</a>
+    <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#jak-to-funguje">Jak to funguje</a>
+  <a href="#ukazky">Ukázky</a>
+  <a href="#cenik">Ceník</a>
+  <a href="#kalkulacka">Kalkulačka</a>
+  <a href="#faq">Časté dotazy</a>
+  <a href="#kontakt" class="btn btn-light">Objednat první video</a>
+  <p class="mm-note">Dodání obvykle do 48 hodin.</p>
+</div>
+
+<!-- ======================= HERO (above the fold) ======================= -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="hero-kicker">Realitní video studio</span>
+      <h1>Z fotek nemovitosti <em class="gold">hotové video</em>. Bez kameramana, do 48 hodin.</h1>
+      <p class="hero-lead">Nafoťte nemovitost mobilem podle jednoduchého návodu, pošlete nám fotky a dostanete zpět profesionální video na web, realitní portály i sociální sítě. Žádné domlouvání termínů, žádná technika, žádné čekání na štáb.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-light">Objednat první video za 497 Kč</a>
+        <a href="#ukazky" class="link-arrow">Podívat se na ukázky <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero-trust">Dodání obvykle <b>do 48 hodin</b><span class="dot" aria-hidden="true">·</span>Formáty na web i na sociální sítě<span class="dot" aria-hidden="true">·</span>Jedna úprava <b>v ceně</b></p>
+
+      <!-- Signature: fotky -> film -->
+      <div class="studio">
+        <div class="studio-board">
+          <div class="studio-col">
+            <p class="studio-label">Vaše fotky z mobilu</p>
+            <div class="shots">
+              <figure class="shot"><div class="scene scene--exterier" aria-hidden="true"></div><figcaption>Exteriér</figcaption></figure>
+              <figure class="shot"><div class="scene" aria-hidden="true"></div><figcaption>Obývací pokoj</figcaption></figure>
+              <figure class="shot"><div class="scene scene--kuchyn" aria-hidden="true"></div><figcaption>Kuchyň</figcaption></figure>
+              <figure class="shot"><div class="scene scene--loznice" aria-hidden="true"></div><figcaption>Ložnice</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="studio-flow" aria-hidden="true">
+            <svg class="flow-arrow" viewBox="0 0 100 40" fill="none">
+              <path d="M4 20 H84" stroke="currentColor" stroke-width="2" stroke-dasharray="1 8" stroke-linecap="round"/>
+              <path d="M78 11 L92 20 L78 29" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="flow-chip">Hotovo do 48 h</span>
+          </div>
+
+          <div class="studio-col">
+            <p class="studio-label">Vaše hotové video</p>
+            <div class="film">
+              <div class="screen">
+                <div class="scene" aria-hidden="true"></div>
+                <span class="play" aria-hidden="true"></span>
+              </div>
+              <div class="player-info">
+                <span class="format-chip">16:9</span>
+                <span>Rodinný dům · Beroun</span>
+                <span class="time">0:24</span>
+              </div>
+              <div class="prog" aria-hidden="true">
+                <i style="left:33%"></i><i style="left:58%"></i><i style="left:80%"></i>
+                <span class="prog-fill"></span>
+              </div>
+              <div class="chapters" aria-hidden="true">
+                <span>Exteriér</span><span>Interiér</span><span>Detaily</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="scene scene--kuchyn"></div>
+            <span class="play play-sm"></span>
+          </div>
+          <p class="phone-tag">9:16 · Reels</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+  // sticky hlavička: stín po odscrollování
+  var head = document.querySelector(".site-head");
+  var onScroll = function () { if (head) head.classList.toggle("scrolled", window.scrollY > 8); };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // mobilní menu
+  var toggle = document.querySelector(".nav-toggle");
+  var menu = document.getElementById("mobile-menu");
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Zavřít menu" : "Otevřít menu");
+    }
+  }
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () { setMenu(!document.body.classList.contains("menu-open")); });
+    menu.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 960) setMenu(false); });
+  }
+})();
+</script>
+</body>
+</html>
