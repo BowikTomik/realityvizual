@@ -22,6 +22,8 @@
   --cream-90: rgba(255, 253, 248, 0.9);
   --cream-75: rgba(255, 253, 248, 0.75);
   --cream-55: rgba(255, 253, 248, 0.55);
+  /* trust řádek na zelené: 0.55 dávalo 4.37:1, což je pod AA (4.5:1) */
+  --cream-65: rgba(255, 253, 248, 0.65);
   --cream-line: rgba(255, 253, 248, 0.14);
 
   --font-display: "Fraunces", "Georgia", serif;
@@ -358,7 +360,7 @@ body.menu-open { overflow: hidden; }
 .hero-trust {
   margin: 26px auto 0;
   font-size: 13.5px;
-  color: var(--cream-55);
+  color: var(--cream-65);
 }
 .hero-trust b { color: var(--cream-75); font-weight: 500; }
 .hero-trust .dot { margin-inline: 10px; color: var(--accent); }
