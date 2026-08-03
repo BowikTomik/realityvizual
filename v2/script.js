@@ -183,10 +183,10 @@
 
   // doporučení balíčku podle objemu — vychází z reálného ceníku
   var TIPY = {
-    "1–2 měsíčně": "Při 1–2 nemovitostech měsíčně vychází nejlépe balíček 3 videí — 2 200 Kč za video.",
-    "3–5 měsíčně": "Při 3–5 nemovitostech měsíčně vychází nejlépe balíček 10 videí — 1 970 Kč za video.",
-    "6–10 měsíčně": "Při 6–10 nemovitostech měsíčně vychází nejlépe balíček 25 videí — 1 586 Kč za video.",
-    "Víc než 10 měsíčně": "Při vašem objemu dává smysl roční předplatné — platíte 10 měsíců z dvanácti."
+    "1–2 měsíčně": "Při 1–2 nemovitostech měsíčně vychází nejlépe balíček 3 videí, 2 200 Kč za video.",
+    "3–5 měsíčně": "Při 3–5 nemovitostech měsíčně vychází nejlépe balíček 10 videí, 1 970 Kč za video.",
+    "6–10 měsíčně": "Při 6–10 nemovitostech měsíčně vychází nejlépe balíček 25 videí, 1 586 Kč za video.",
+    "Víc než 10 měsíčně": "Při vašem objemu dává smysl roční předplatné. Platíte 10 měsíců z dvanácti."
   };
 
   function showStep(n) {
@@ -230,7 +230,7 @@
     var map = { typ: "recap-typ", format: "recap-format", fotky: "recap-fotky", objem: "recap-objem" };
     Object.keys(map).forEach(function (k) {
       var el = document.getElementById(map[k]);
-      if (el) el.textContent = answers[k] || "—";
+      if (el) el.textContent = answers[k] || "-";
     });
     var tip = document.getElementById("quiz-tip");
     if (tip) {
@@ -250,15 +250,15 @@
     var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
     var telo =
       "Objednávka prvního videa (497 Kč)\n\n" +
-      "Nemovitost: " + (answers.typ || "—") + "\n" +
-      "Formát: " + (answers.format || "—") + "\n" +
-      "Fotky: " + (answers.fotky || "—") + "\n" +
-      "Objem: " + (answers.objem || "—") + "\n\n" +
+      "Nemovitost: " + (answers.typ || "-") + "\n" +
+      "Formát: " + (answers.format || "-") + "\n" +
+      "Fotky: " + (answers.fotky || "-") + "\n" +
+      "Objem: " + (answers.objem || "-") + "\n\n" +
       "Jméno: " + v("q-jmeno") + "\n" +
       "E-mail: " + v("q-email") + "\n" +
       "Telefon: " + (v("q-tel") || "neuvedeno") + "\n";
     return "mailto:" + OBJEDNAVKY_EMAIL +
-      "?subject=" + encodeURIComponent("Objednávka prvního videa — " + v("q-jmeno")) +
+      "?subject=" + encodeURIComponent("Objednávka prvního videa, " + v("q-jmeno")) +
       "&body=" + encodeURIComponent(telo);
   }
 
