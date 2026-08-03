@@ -1,7 +1,7 @@
 # Statický web bez build kroku.
-# Nasazuje se obsah složky v1/ — až vznikne v2, stačí přepsat tenhle řádek.
+# Nasazuje se obsah složky v2/ — starší verze zůstávají v repu jako reference.
 [build]
-  publish = "v1"
+  publish = "v2"
 
 [[headers]]
   for = "/*"
