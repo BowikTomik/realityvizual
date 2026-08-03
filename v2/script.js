@@ -113,7 +113,18 @@
   }
 
   /* ---------- kalkulačka úspory ---------- */
-  var REALITYVIZUAL_PER_VIDEO = 2470; // cena jednoho videa pro férové srovnání
+  // cena za video u nás klesá s objemem, podle balíčků v ceníku
+  function rvPricePerVideo(kusu) {
+    if (kusu >= 25) return 1586; // balíček 25
+    if (kusu >= 10) return 1970; // balíček 10
+    if (kusu >= 3) return 2200;  // balíček 3
+    return 2470;                 // bez balíčku
+  }
+
+  // kameraman si účtuje víc při nízkém objemu, míň má prostor slevit ve velkém
+  function kamMinPrice(kusu) {
+    return kusu >= 10 ? 2000 : 2500;
+  }
 
   var cena = document.getElementById("cena-kameraman");
   var pocet = document.getElementById("pocet");
@@ -124,6 +135,7 @@
   var barRv = document.getElementById("bar-rv");
   var barKamVal = document.getElementById("bar-kam-val");
   var barRvVal = document.getElementById("bar-rv-val");
+  var barRvRate = document.getElementById("bar-rv-rate");
 
   function paintRange(input) {
     var min = +input.min, max = +input.max;
@@ -135,8 +147,14 @@
   function updateKalk() {
     if (!cena || !pocet) return;
     var kusu = +pocet.value;
+    var rvRate = rvPricePerVideo(kusu);
+    var minKam = kamMinPrice(kusu);
+
+    cena.min = minKam;
+    if (+cena.value < minKam) cena.value = minKam;
+
     var kameraman = +cena.value * kusu;
-    var realityvizual = REALITYVIZUAL_PER_VIDEO * kusu;
+    var realityvizual = rvRate * kusu;
     var monthly = Math.max(0, kameraman - realityvizual);
     var max = Math.max(kameraman, realityvizual) || 1;
 
@@ -146,6 +164,7 @@
 
     if (barKamVal) barKamVal.textContent = czk.format(kameraman) + " Kč";
     if (barRvVal) barRvVal.textContent = czk.format(realityvizual) + " Kč";
+    if (barRvRate) barRvRate.textContent = czk.format(rvRate) + " Kč za video";
     if (barKam) barKam.style.width = (kameraman / max) * 100 + "%";
     if (barRv) barRv.style.width = (realityvizual / max) * 100 + "%";
 
