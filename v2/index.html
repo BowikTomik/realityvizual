@@ -1,857 +1,93 @@
 <!DOCTYPE html>
-<html lang="cs" class="no-js">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RealityVizual · z fotek nemovitosti hotové video do 48 hodin</title>
-<meta name="description" content="RealityVizual promění fotky nemovitosti pořízené mobilem v hotové marketingové video na web, realitní portály i sociální sítě. Bez kameramana, obvykle do 48 hodin.">
+<title>RealityVizual · web připravujeme</title>
+<meta name="description" content="Web RealityVizual právě připravujeme. Brzy tu najdete video ze fotek nemovitosti do 48 hodin.">
+<meta name="robots" content="noindex">
 <meta name="theme-color" content="#F5F7F3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0F0C" media="(prefers-color-scheme: dark)">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="cs_CZ">
-<meta property="og:title" content="RealityVizual · z fotek nemovitosti hotové video">
-<meta property="og:description" content="Nafoťte nemovitost mobilem, pošlete fotky a dostanete profesionální video na web i sociální sítě. Bez kameramana, do 48 hodin.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/logo.png">
-<script>
-  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-  try {
-    var savedTheme = localStorage.getItem('rv-theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-  } catch (e) {}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #F5F7F3;
+    --fg: #121212;
+    --muted: #5E625C;
+    --lime: #91E600;
+    --lime-ink: #467000;
+    --border: #E1E5DB;
+    --display: "Archivo", Arial, sans-serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #0D0F0C;
+      --fg: #F2F5EE;
+      --muted: #A6ADA0;
+      --lime-ink: #9BEE18;
+      --border: #272C22;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  main {
+    max-width: 480px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+  .mark { width: 52px; height: auto; }
+  .mark .lm-lime { fill: var(--lime); }
+  .mark .lm-ink { fill: var(--fg); }
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-size: clamp(22px, 5vw, 28px);
+    line-height: 1.25;
+    margin: 0;
+  }
+  p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  a.mail {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--lime-ink);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+  a.mail:hover { opacity: .8; }
+</style>
 </head>
 <body>
-
-<div id="top"></div>
-<a href="#obsah" class="skip-link">Přeskočit na obsah</a>
-
-<!-- ======================= HLAVIČKA ======================= -->
-<header class="head">
-  <div class="wrap head-in">
-    <a href="#top" class="brand" aria-label="RealityVizual · domů">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 489 419"><path class="lm-lime" d="M226.1 321.0L197.7 320.5L169.5 262.5L141.2 204.5L122.1 204.2L103.0 204.0L103.0 262.5L103.0 321.0L51.5 321.0L0.0 321.0L0.0 160.5L0.0 0.0L100.2 0.0C160.3 0.0 204.8 0.4 211.2 1.0C242.2 4.0 268.5 17.3 284.6 38.2C287.0 41.3 291.0 47.8 293.4 52.7C301.8 69.6 304.5 82.7 303.7 103.1C303.1 121.2 299.6 133.3 290.8 148.5C283.0 161.8 268.7 174.6 252.4 182.5C247.2 185.1 243.0 187.4 243.0 187.7C243.0 188.0 258.8 217.8 278.0 254.0C297.2 290.2 313.0 320.0 313.0 320.4C313.0 321.2 259.6 321.6 226.1 321.0Z M182.1 130.4C187.6 127.8 193.2 122.5 196.2 116.7C198.1 113.2 198.5 110.9 198.5 103.0C198.5 92.1 196.9 88.1 190.3 81.9C181.9 74.0 185.0 74.5 141.8 74.2L103.0 73.9L103.0 103.5L103.0 133.1L140.2 132.8C175.8 132.5 177.7 132.4 182.1 130.4Z"/><path class="lm-ink" d="M272.1 370.5C262.7 343.8 255.0 321.7 255.0 321.5C255.0 321.2 268.1 321.0 284.0 321.0C299.9 321.0 313.0 320.7 313.0 320.4C313.0 320.0 297.2 290.2 278.0 254.0C258.8 217.8 243.0 188.0 243.0 187.7C243.0 187.4 247.2 185.1 252.4 182.5C257.6 180.0 264.7 175.7 268.2 173.1C274.7 168.1 284.8 158.0 286.7 154.5C287.4 153.4 288.1 152.7 288.3 153.0C288.6 153.3 300.6 192.7 315.0 240.5C329.4 288.4 341.4 327.7 341.6 328.0C341.9 328.2 342.4 327.9 342.8 327.3C343.2 326.7 355.9 285.2 371.0 235.1L398.5 144.0L443.6 144.0L488.7 144.0L440.1 281.5L391.6 419.0L340.4 419.0L289.3 419.0L272.1 370.5Z"/></svg>
-      </span>
-      <span class="brand-txt">
-        <b>RealityVizual</b>
-        <small>Video z fotek pro realitní makléře</small>
-      </span>
-    </a>
-
-    <div class="head-actions">
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Přepnout na tmavý režim">
-        <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.3A8.5 8.5 0 1 1 9.7 3.6a7 7 0 0 0 10.7 10.7Z"/></svg>
-        <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
-      </button>
-      <a href="#kontakt" class="btn btn-primary btn-sm" data-quiz-open>
-        Objednat video
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-      </a>
-    </div>
-  </div>
-</header>
-
-<main id="obsah">
-
-<!-- ======================= HERO ======================= -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="wrap hero-in">
-
-    <div class="hero-copy">
-      <p class="eyebrow eyebrow-brand">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg>
-        RealityVizual <span class="sep" aria-hidden="true">·</span> Video pro realitní makléře
-      </p>
-
-      <h1><span class="h1-light">Z fotek</span><span class="h1-arrow" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h24"/><path d="m19 4 9 8-9 8"/></svg></span><span class="sr-only"> na </span><mark>video.</mark></h1>
-
-      <p class="hero-sub">Bez kameramana, do 48 hodin.</p>
-
-      <div class="hero-actions">
-        <a href="#kontakt" class="btn btn-primary btn-xl" data-quiz-open>Objednat první video za 497 Kč</a>
-        <a href="#ukazky" class="link-arrow">Podívat se na ukázky
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
-        </a>
-      </div>
-
-      <p class="hero-micro">Bez závazku · Platbu vyřídíme až po potvrzení objednávky</p>
-
-      <ul class="ticks">
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Hotové video obvykle do 48 hodin</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Formáty na web i na sociální sítě</li>
-        <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Jedna úprava videa je vždy v ceně</li>
-      </ul>
-    </div>
-
-    <!-- signature: fotky -> film -->
-    <div class="hero-visual">
-      <div class="studio-glow" aria-hidden="true"></div>
-      <div class="studio-card">
-        <div class="card-top">
-          <h2 class="card-title">Z fotek uděláme film</h2>
-          <p class="card-sub">Vaše práce končí odesláním fotek z mobilu.</p>
-        </div>
-
-        <div class="card-body">
-          <p class="tiny-label">Vaše fotky z mobilu</p>
-          <div class="shots" aria-hidden="true">
-            <figure class="shot"><span class="scene scene--exterier"></span><figcaption>Exteriér</figcaption></figure>
-            <figure class="shot"><span class="scene scene--obyvak"></span><figcaption>Obývák</figcaption></figure>
-            <figure class="shot"><span class="scene scene--kuchyn"></span><figcaption>Kuchyň</figcaption></figure>
-            <figure class="shot"><span class="scene scene--loznice"></span><figcaption>Ložnice</figcaption></figure>
-          </div>
-
-          <div class="flow" aria-hidden="true">
-            <span class="flow-line"></span>
-            <span class="flow-chip">
-              <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
-              Hotovo do 48 hodin
-            </span>
-            <span class="flow-line"></span>
-          </div>
-
-          <p class="tiny-label">Vaše hotové video</p>
-          <div class="player">
-            <div class="screen" aria-hidden="true">
-              <span class="scene scene--film"></span>
-              <span class="play"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-              <span class="screen-chip mono">16:9</span>
-            </div>
-            <div class="player-meta">
-              <span>Rodinný dům · Beroun</span>
-              <span class="mono">0:24</span>
-            </div>
-            <div class="track" aria-hidden="true">
-              <span class="track-fill"></span>
-              <i style="left:34%"></i><i style="left:58%"></i><i style="left:81%"></i>
-            </div>
-            <div class="chapters" aria-hidden="true"><span>Exteriér</span><span>Interiér</span><span>Detaily</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="phone-float" aria-hidden="true">
-        <div class="phone-screen">
-          <span class="scene scene--kuchyn"></span>
-          <span class="play play-sm"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <span class="phone-tag mono">9:16 · Reels</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ======================= PÁS PLATFOREM ======================= -->
-<div class="platforms">
-  <div class="wrap">
-    <p class="tiny-label platforms-label">Video připravené k publikaci na:</p>
-  </div>
-
-  <div class="marquee" role="img"
-       aria-label="Platformy: Sreality, Bezrealitky, iDNES Reality, Instagram, Facebook, TikTok, YouTube">
-    <div class="marquee-track">
-      <!-- ===== sada 1 ===== -->
-      <ul class="logos">
-        <li class="logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 11.2 12 3.8l8.4 7.4a1 1 0 0 1-.66 1.75H18.6v6.3a1 1 0 0 1-1 1h-3.1v-5.1H9.5v5.1H6.4a1 1 0 0 1-1-1v-6.3H4.26a1 1 0 0 1-.66-1.75Z" fill="currentColor"/></svg>
-          <span>Sreality</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="12" r="4.2"/><path d="M12.2 12H21M17.4 12v3.2M20.2 12v2.2"/></svg>
-          <span>Bezrealitky</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.8" y="3.6" width="14.4" height="16.8" rx="1.8"/><path d="M8.6 8h2.2M13.2 8h2.2M8.6 12h2.2M13.2 12h2.2M10.4 20.4V16.6h3.2v3.8"/></svg>
-          <span>iDNES Reality</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg>
-          <span>Instagram</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.9 21.5v-7.6h2.6l.5-3.1h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1v2.4H7.9v3.1h2.7v7.6Z" fill="currentColor"/></svg>
-          <span>Facebook</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.2 3.6v10.9a3.9 3.9 0 1 1-3.4-3.87"/><path d="M14.2 3.6c.55 2.6 2.2 4.1 4.9 4.3"/></svg>
-          <span>TikTok</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.6" width="19.2" height="12.8" rx="3.6"/><path d="m10.3 9.3 5.2 2.7-5.2 2.7Z" fill="currentColor" stroke="none"/></svg>
-          <span>YouTube</span>
-        </li>
-      </ul>
-
-      <!-- ===== sada 2: kopie pro plynulou smyčku ===== -->
-      <ul class="logos" aria-hidden="true">
-        <li class="logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 11.2 12 3.8l8.4 7.4a1 1 0 0 1-.66 1.75H18.6v6.3a1 1 0 0 1-1 1h-3.1v-5.1H9.5v5.1H6.4a1 1 0 0 1-1-1v-6.3H4.26a1 1 0 0 1-.66-1.75Z" fill="currentColor"/></svg>
-          <span>Sreality</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="12" r="4.2"/><path d="M12.2 12H21M17.4 12v3.2M20.2 12v2.2"/></svg>
-          <span>Bezrealitky</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.8" y="3.6" width="14.4" height="16.8" rx="1.8"/><path d="M8.6 8h2.2M13.2 8h2.2M8.6 12h2.2M13.2 12h2.2M10.4 20.4V16.6h3.2v3.8"/></svg>
-          <span>iDNES Reality</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg>
-          <span>Instagram</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.9 21.5v-7.6h2.6l.5-3.1h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1v2.4H7.9v3.1h2.7v7.6Z" fill="currentColor"/></svg>
-          <span>Facebook</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.2 3.6v10.9a3.9 3.9 0 1 1-3.4-3.87"/><path d="M14.2 3.6c.55 2.6 2.2 4.1 4.9 4.3"/></svg>
-          <span>TikTok</span>
-        </li>
-        <li class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="5.6" width="19.2" height="12.8" rx="3.6"/><path d="m10.3 9.3 5.2 2.7-5.2 2.7Z" fill="currentColor" stroke="none"/></svg>
-          <span>YouTube</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ======================= SITUACE ======================= -->
-<section class="section" id="sluzba">
-  <div class="wrap">
-    <div class="statement reveal">
-      <p>Fotky máte. Video ne. A <span class="hl">video dnes rozhoduje,</span> kdo si inzerát otevře.</p>
-    </div>
-
-    <div class="split">
-      <div class="split-l reveal">
-        <p class="eyebrow">Situace, kterou znáte</p>
-        <h2>Kameraman je drahý krok navíc</h2>
-        <a href="#jak-to-funguje" class="link-arrow">Jak to řešíme
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-      </div>
-      <div class="split-r reveal" style="--d:.08s">
-        <p>Objednat kameramana znamená domlouvat termín, řešit techniku, přístup do bytu a nemalý rozpočet u každé jedné zakázky. U rychlého prodeje nebo u běžného bytu se to často nevyplatí. Video pak úplně vynecháte.</p>
-        <p class="punch">RealityVizual tenhle krok ruší. Z fotek, které už máte v ruce, uděláme hotové video. Za zlomek času i ceny.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= JAK TO FUNGUJE ======================= -->
-<section class="section band" id="jak-to-funguje">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Jak to funguje</p>
-      <h2>Tři kroky k hotovému videu</h2>
-      <p class="lead">Od vašeho telefonu k publikovatelnému videu. Vaše práce končí odesláním fotek. Zbytek je na nás.</p>
-    </div>
-
-    <div class="steps">
-      <span class="steps-line" aria-hidden="true"></span>
-      <article class="step reveal">
-        <span class="step-num">1</span>
-        <h3>Nafotíte</h3>
-        <p>Nemovitost nafotíte mobilem podle našeho jednoduchého návodu. Zvládne to každý, žádné vybavení navíc nepotřebujete.</p>
-      </article>
-      <article class="step reveal" style="--d:.1s">
-        <span class="step-num">2</span>
-        <h3>Pošlete fotky</h3>
-        <p>Zvolíte formát: na šířku pro web a portály, na výšku pro sociální sítě, nebo obojí. Fotky nám pošlete a z vaší strany je hotovo.</p>
-      </article>
-      <article class="step reveal" style="--d:.2s">
-        <span class="step-num">3</span>
-        <h3>Dostanete video</h3>
-        <p>Fotky sjednotíme a složíme z nich dynamické video s přechody, hudbou a texty. Do 48 hodin máte výstup připravený k publikaci.</p>
-      </article>
-    </div>
-
-    <div class="sec-cta">
-      <a href="#kontakt" class="btn btn-primary btn-lg" data-quiz-open>Objednat první video za 497 Kč</a>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= UKÁZKY ======================= -->
-<section class="section" id="ukazky">
-  <div class="wrap">
-    <div class="sec-head sec-head--row">
-      <div class="reveal">
-        <p class="eyebrow">Ukázky</p>
-        <h2>Podívejte se, jak to vypadá</h2>
-        <p class="lead">Tady mluví výsledek za nás. Níže jsou videa z běžných fotek nemovitostí. Přesně tak je dostanete i vy.</p>
-      </div>
-      <div class="reel-nav">
-        <button class="reel-btn" data-reel="prev" aria-label="Předchozí ukázky">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="reel-btn" data-reel="next" aria-label="Další ukázky">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="reel" id="reel" tabindex="0" role="region" aria-label="Ukázková videa, vodorovné posouvání">
-      <figure class="demo">
-        <div class="demo-screen">
-          <span class="scene scene--obyvak" aria-hidden="true"></span>
-          <span class="demo-tag mono">16:9 · Sreality</span>
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <figcaption>
-          <p class="demo-title">Byt 2+kk, Vinohrady</p>
-          <p class="demo-sub">Formát na šířku pro web a realitní portály</p>
-        </figcaption>
-      </figure>
-
-      <figure class="demo demo--tall">
-        <div class="demo-screen">
-          <span class="scene scene--exterier" aria-hidden="true"></span>
-          <span class="demo-tag mono">9:16 · Reels</span>
-          <span class="play play-sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <figcaption>
-          <p class="demo-title">Rodinný dům, Beroun</p>
-          <p class="demo-sub">Formát na výšku pro Instagram a Reels</p>
-        </figcaption>
-      </figure>
-
-      <figure class="demo">
-        <div class="demo-screen">
-          <span class="scene scene--kuchyn" aria-hidden="true"></span>
-          <span class="demo-tag mono">16:9 · web</span>
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <figcaption>
-          <p class="demo-title">Novostavba 4+kk, Zličín</p>
-          <p class="demo-sub">Formát na šířku pro developerskou prezentaci</p>
-        </figcaption>
-      </figure>
-
-      <figure class="demo demo--tall">
-        <div class="demo-screen">
-          <span class="scene scene--loznice" aria-hidden="true"></span>
-          <span class="demo-tag mono">9:16 · TikTok</span>
-          <span class="play play-sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <figcaption>
-          <p class="demo-title">Podkrovní byt, Brno</p>
-          <p class="demo-sub">Formát na výšku pro sociální sítě</p>
-        </figcaption>
-      </figure>
-
-      <figure class="demo">
-        <div class="demo-screen">
-          <span class="scene scene--film" aria-hidden="true"></span>
-          <span class="demo-tag mono">16:9 · portály</span>
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.5 18 12l-9 5.5z" fill="currentColor"/></svg></span>
-        </div>
-        <figcaption>
-          <p class="demo-title">Chata u přehrady, Orlík</p>
-          <p class="demo-sub">Formát na šířku s exteriérem a okolím</p>
-        </figcaption>
-      </figure>
-    </div>
-    <p class="reel-hint">Táhněte do stran a projděte další ukázky</p>
-  </div>
-</section>
-
-<!-- ======================= CO DOSTANETE ======================= -->
-<section class="section band">
-  <div class="wrap">
-    <div class="split split--cards">
-      <div class="split-l reveal">
-        <p class="eyebrow">Čtyři důvody, jeden výsledek</p>
-        <h2>Nekupujete technologii. Kupujete výsledek.</h2>
-        <p class="lead">Makléře nezajímá, čím se video vyrobí. Zajímá ho, že ho má: rychle, levně a v použitelné podobě.</p>
-        <a href="#cenik" class="link-arrow">Podívat se na ceník
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-      </div>
-
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="14" height="10" rx="2"/><path d="m16.5 10.5 5-2.5v8l-5-2.5"/></svg>
-            </span>
-            <span class="card-num mono">01</span>
-          </div>
-          <h3>Video bez kameramana</h3>
-          <p>Žádné domlouvání termínů, žádná technika, žádný štáb v bytě. Odpadá celá organizace kolem natáčení.</p>
-        </article>
-
-        <article class="card reveal" style="--d:.06s">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 7V6a2 2 0 0 1 2-2h11"/><circle cx="16.5" cy="12.5" r="1.4" fill="currentColor" stroke="none"/></svg>
-            </span>
-            <span class="card-num mono">02</span>
-          </div>
-          <h3>Nižší cena, méně starostí</h3>
-          <p>Jedna zakázka, jasná cena, nulová organizace navíc. Vejde se i do rozpočtu běžného bytu.</p>
-        </article>
-
-        <article class="card reveal" style="--d:.12s">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="m8.1 10.9 7.8-3.8M8.1 13.1l7.8 3.8"/></svg>
-            </span>
-            <span class="card-num mono">03</span>
-          </div>
-          <h3>Obsah na inzerát i na sítě</h3>
-          <p>Formát na šířku i na výšku, podle toho, kam právě míříte s konkrétní nemovitostí.</p>
-        </article>
-
-        <article class="card reveal" style="--d:.18s">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-            </span>
-            <span class="card-num mono">04</span>
-          </div>
-          <h3>Dodání do 48 hodin</h3>
-          <p>Hotové video obvykle do dvou dnů od chvíle, kdy máme kompletní fotky. Inzerát nečeká.</p>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= FORMÁTY ======================= -->
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Formáty</p>
-      <h2>Jeden inzerát, dva světy</h2>
-      <p class="lead">Podle toho, kde chcete zaujmout, dodáme video ve správném poměru stran, nebo rovnou v obou.</p>
-    </div>
-
-    <div class="formats">
-      <article class="format reveal">
-        <div class="format-vis" aria-hidden="true"><span class="ratio ratio--wide"></span></div>
-        <p class="format-ratio mono">16:9</p>
-        <h3>Na šířku: web a portály</h3>
-        <p>Pro web, Sreality a další realitní portály. Klasický formát, na který jsou kupující zvyklí a který působí seriózně.</p>
-      </article>
-
-      <article class="format reveal" style="--d:.08s">
-        <div class="format-vis" aria-hidden="true"><span class="ratio ratio--tall"></span></div>
-        <p class="format-ratio mono">9:16</p>
-        <h3>Na výšku: sociální sítě</h3>
-        <p>Pro Instagram, Facebook, TikTok a Reels. Formát, který dnes získá největší dosah mezi lidmi, kteří aktivně nehledají, ale koupili by.</p>
-      </article>
-
-      <article class="format format--both reveal" style="--d:.16s">
-        <div class="format-vis" aria-hidden="true"><span class="ratio ratio--wide sm"></span><span class="ratio ratio--tall sm"></span></div>
-        <p class="format-ratio mono">16:9 + 9:16</p>
-        <h3>Obojí z jednoho focení</h3>
-        <p>Pokryjete inzerát i sociální sítě naráz. Nejčastější volba makléřů, kteří to s marketingem myslí vážně.</p>
-        <span class="pill">Nejčastější volba</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CO PO VÁS CHCEME ======================= -->
-<section class="section band">
-  <div class="wrap">
-    <div class="split split--visual">
-      <div class="split-l reveal">
-        <p class="eyebrow">Co po vás chceme</p>
-        <h2>Vaše jediná práce: nafotit a poslat</h2>
-        <p class="lead">Nemusíte umět fotit ani stříhat. Stačí projít krátký návod a držet se pár jednoduchých pravidel:</p>
-        <ul class="ticks ticks--list">
-          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Foťte za denního světla, ideálně dopoledne nebo odpoledne.</li>
-          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Držte telefon rovně a v jedné rovině, na šířku nebo na výšku podle formátu.</li>
-          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Z každé místnosti pořiďte 2–3 záběry z různých míst.</li>
-          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg></span>Nezapomeňte na exteriér, vstup a hlavní přednosti nemovitosti.</li>
-        </ul>
-        <p class="note">Detailní návod dostanete hned po objednávce. Když bude něco chybět, ozveme se dřív, než začneme.</p>
-      </div>
-
-      <div class="split-r reveal" style="--d:.1s">
-        <div class="guide">
-          <div class="guide-phone" aria-hidden="true">
-            <span class="scene scene--obyvak"></span>
-            <span class="guide-grid"></span>
-          </div>
-          <span class="guide-chip guide-chip--a" aria-hidden="true">Denní světlo</span>
-          <span class="guide-chip guide-chip--b" aria-hidden="true">Telefon v jedné rovině</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= POCTIVOST ======================= -->
-<section class="section">
-  <div class="wrap">
-    <div class="honest reveal">
-      <p class="eyebrow">Poctivost především</p>
-      <h2>Vylepšíme vizuál, ne realitu</h2>
-      <p>Fotky vyladíme tak, aby video působilo jednotně a profesionálně: <strong>sjednotíme světlo, barvy a celkový dojem</strong>. Nikdy ale nedomýšlíme, co v nemovitosti není, a nezkreslujeme skutečný stav. Vy potřebujete inzerát, který přivede kupce a nezpůsobí problém při prohlídce. Přesně takový od nás dostanete.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CENÍK ======================= -->
-<section class="section band" id="cenik">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Ceník</p>
-      <h2>Jednoduché ceny, žádná překvapení</h2>
-      <p class="lead">Čím víc videí, tím nižší cena za kus. Balíčky čerpáte průběžně, jak přibývají zakázky.</p>
-    </div>
-
-    <div class="pricing">
-      <aside class="trial reveal">
-        <span class="trial-tag">Vyzkoušení</span>
-        <h3>První video</h3>
-        <p class="trial-price mono">497 <small>Kč</small></p>
-        <p>Otestujte kvalitu i celý proces bez velkého závazku. Dostanete plnohodnotné video z vašich fotek.</p>
-        <a href="#kontakt" class="btn btn-dark" data-quiz-open>Objednat první video</a>
-      </aside>
-
-      <div class="plans reveal" style="--d:.08s">
-        <div class="plan-row plan-row--head">
-          <span>Balíček</span><span>Cena</span><span>Za video</span>
-        </div>
-        <div class="plan-row">
-          <span class="plan-name">1 video</span>
-          <span class="plan-price mono">2 470 Kč</span>
-          <span class="plan-per"><span class="chip mono">2 470 Kč</span></span>
-        </div>
-        <div class="plan-row">
-          <span class="plan-name">3 videa</span>
-          <span class="plan-price mono">6 600 Kč</span>
-          <span class="plan-per"><span class="chip mono">2 200 Kč</span></span>
-        </div>
-        <div class="plan-row">
-          <span class="plan-name">10 videí</span>
-          <span class="plan-price mono">19 700 Kč</span>
-          <span class="plan-per"><span class="chip mono">1 970 Kč</span></span>
-        </div>
-        <div class="plan-row">
-          <span class="plan-name">25 videí</span>
-          <span class="plan-price mono">39 650 Kč</span>
-          <span class="plan-per"><span class="chip mono">1 586 Kč</span></span>
-        </div>
-        <div class="plan-row">
-          <span class="plan-name">Roční předplatné <small>průběžné čerpání</small></span>
-          <span class="plan-price">cena za 10 měsíců</span>
-          <span class="plan-per"><span class="chip chip--lime">2 měsíce zdarma</span></span>
-        </div>
-
-        <p class="note">Balíčky nevyprší nárazově. Čerpáte je průběžně, jak přibývají zakázky. Jedna úprava videa je vždy v ceně.</p>
-        <div class="plans-cta">
-          <a href="#kontakt" class="btn btn-primary" data-quiz-open>Objednat první video za 497 Kč</a>
-          <a href="#kontakt" class="text-link" data-quiz-open>Nezávazná poptávka</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= KALKULAČKA ======================= -->
-<section class="section" id="kalkulacka">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Kalkulačka úspory</p>
-      <h2>Spočítejte si, kolik ušetříte</h2>
-      <p class="lead">Kameraman si za natáčení jedné nemovitosti běžně účtuje několik tisíc korun. A to bez organizace, dojezdu a čekání na termín. Zadejte svá čísla a uvidíte rozdíl.</p>
-    </div>
-
-    <div class="kalk reveal">
-      <form class="kalk-inputs" id="kalk">
-        <div class="kalk-field">
-          <div class="kalk-label-row">
-            <label for="cena-kameraman">Kolik platíte za jedno video od kameramana?</label>
-            <span class="kalk-value mono" id="out-cena">3 500 Kč</span>
-          </div>
-          <input type="range" id="cena-kameraman" min="2500" max="20000" step="100" value="3500" aria-describedby="out-cena">
-        </div>
-
-        <div class="kalk-field">
-          <div class="kalk-label-row">
-            <label for="pocet">Kolik nemovitostí nabízíte měsíčně?</label>
-            <span class="kalk-value mono" id="out-pocet">4</span>
-          </div>
-          <input type="range" id="pocet" min="1" max="30" step="1" value="4" aria-describedby="out-pocet">
-        </div>
-
-        <div class="kalk-bars" aria-hidden="true">
-          <div class="bar-row">
-            <div class="bar-top"><span>Kameraman měsíčně</span><span class="mono" id="bar-kam-val">14 000 Kč</span></div>
-            <div class="bar"><span class="bar-fill bar-fill--dark" id="bar-kam"></span></div>
-          </div>
-          <div class="bar-row">
-            <div class="bar-top"><span>RealityVizual měsíčně</span><span class="mono" id="bar-rv-val">9 880 Kč</span></div>
-            <div class="bar"><span class="bar-fill bar-fill--lime" id="bar-rv"></span></div>
-          </div>
-        </div>
-        <p class="kalk-rate-note">Vaše cena u nás při tomto objemu: <span class="mono" id="bar-rv-rate">2 470 Kč za video</span></p>
-      </form>
-
-      <div class="kalk-result" aria-live="polite">
-        <p class="tiny-label">Vaše úspora měsíčně</p>
-        <p class="kalk-sum mono"><span id="out-uspora">4 120</span> <small>Kč</small></p>
-        <p class="kalk-sentence">S RealityVizual máte navíc video hotové do 48 hodin a bez organizace natáčení.</p>
-        <a href="#kontakt" class="btn btn-dark" data-quiz-open>Objednat první video za 497 Kč</a>
-        <p class="kalk-fine">Orientační výpočet. Cena za video u nás klesá s objemem, od 2 470 Kč do 1 586 Kč. Roční předplatné vyjde ještě levněji.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= FAQ ======================= -->
-<section class="section band" id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">Časté dotazy</p>
-      <h2>Co makléře nejčastěji zajímá</h2>
-    </div>
-
-    <div class="faq">
-      <details class="qa" open>
-        <summary>Jak poznám, že video bude vypadat dobře?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Podívejte se na ukázky výše. Přesně takovou kvalitu dostanete. A protože chápeme, že chcete jistotu, první video vás vyjde jen na 497 Kč. Vyzkoušíte nás bez velkého závazku.</div>
-      </details>
-      <details class="qa">
-        <summary>Co když se mi výsledek nebude líbit?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Jedna úprava je vždy v ceně. Řeknete nám, co změnit, a doladíme to.</div>
-      </details>
-      <details class="qa">
-        <summary>Nebude nemovitost ve videu vypadat jinak než ve skutečnosti?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Ne. Vylepšujeme světlo, barvy a jednotnost, ale skutečný stav nezkreslujeme. Video má přivést kupce, ne způsobit zklamání na prohlídce.</div>
-      </details>
-      <details class="qa">
-        <summary>Jak dlouho to trvá?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Hotové video obvykle dodáme do 48 hodin od chvíle, kdy máme kompletní fotky.</div>
-      </details>
-      <details class="qa">
-        <summary>Co musím udělat já?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Jen nafotit nemovitost mobilem podle návodu a poslat nám fotky. Nic dalšího.</div>
-      </details>
-      <details class="qa">
-        <summary>Jaké formáty dostanu?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Na šířku pro web a portály, na výšku pro sociální sítě, nebo obojí. Podle toho, co si zvolíte.</div>
-      </details>
-      <details class="qa">
-        <summary>Můžu video použít na Sreality, web i Instagram?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Ano. Video dostanete připravené k publikaci na jakoukoli platformu podle zvoleného formátu.</div>
-      </details>
-      <details class="qa">
-        <summary>Jak probíhá platba a fakturace?<span class="qa-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <div class="qa-body">Po objednávce vám pošleme podklady k platbě i doklad. Vše jednoduše a v pořádku pro účetnictví.</div>
-      </details>
-    </div>
-
-    <p class="faq-more">Nenašli jste odpověď? <a href="#kontakt" class="text-link" data-quiz-open>Napište nám</a>. Ozveme se obvykle týž den.</p>
-  </div>
-</section>
-
-<!-- ======================= ZÁVĚREČNÉ CTA ======================= -->
-<section class="cta" id="kontakt">
-  <div class="wrap">
-    <h2>Příští inzerát můžete mít s videem</h2>
-    <p>Nemovitost už máte nafocenou. Zbývá jediný krok k tomu, aby se odlišila od desítek podobných inzerátů bez videa.</p>
-    <a href="#kontakt" class="btn btn-dark btn-lg" data-quiz-open>Objednat první video za 497 Kč</a>
-    <p class="cta-micro">Dodání do 48 hodin · Jedna úprava v ceně · Vyzkoušení bez velkého závazku</p>
-  </div>
-</section>
-
+<main>
+  <svg class="mark" viewBox="0 0 489 419" aria-hidden="true"><path class="lm-lime" d="M226.1 321.0L197.7 320.5L169.5 262.5L141.2 204.5L122.1 204.2L103.0 204.0L103.0 262.5L103.0 321.0L51.5 321.0L0.0 321.0L0.0 160.5L0.0 0.0L100.2 0.0C160.3 0.0 204.8 0.4 211.2 1.0C242.2 4.0 268.5 17.3 284.6 38.2C287.0 41.3 291.0 47.8 293.4 52.7C301.8 69.6 304.5 82.7 303.7 103.1C303.1 121.2 299.6 133.3 290.8 148.5C283.0 161.8 268.7 174.6 252.4 182.5C247.2 185.1 243.0 187.4 243.0 187.7C243.0 188.0 258.8 217.8 278.0 254.0C297.2 290.2 313.0 320.0 313.0 320.4C313.0 321.2 259.6 321.6 226.1 321.0Z M182.1 130.4C187.6 127.8 193.2 122.5 196.2 116.7C198.1 113.2 198.5 110.9 198.5 103.0C198.5 92.1 196.9 88.1 190.3 81.9C181.9 74.0 185.0 74.5 141.8 74.2L103.0 73.9L103.0 103.5L103.0 133.1L140.2 132.8C175.8 132.5 177.7 132.4 182.1 130.4Z"/><path class="lm-ink" d="M272.1 370.5C262.7 343.8 255.0 321.7 255.0 321.5C255.0 321.2 268.1 321.0 284.0 321.0C299.9 321.0 313.0 320.7 313.0 320.4C313.0 320.0 297.2 290.2 278.0 254.0C258.8 217.8 243.0 188.0 243.0 187.7C243.0 187.4 247.2 185.1 252.4 182.5C257.6 180.0 264.7 175.7 268.2 173.1C274.7 168.1 284.8 158.0 286.7 154.5C287.4 153.4 288.1 152.7 288.3 153.0C288.6 153.3 300.6 192.7 315.0 240.5C329.4 288.4 341.4 327.7 341.6 328.0C341.9 328.2 342.4 327.9 342.8 327.3C343.2 326.7 355.9 285.2 371.0 235.1L398.5 144.0L443.6 144.0L488.7 144.0L440.1 281.5L391.6 419.0L340.4 419.0L289.3 419.0L272.1 370.5Z"/></svg>
+  <h1>Je nám líto, web teprve připravujeme</h1>
+  <p>Pracujeme na tom. Mezitím nás můžete kontaktovat na <a class="mail" href="mailto:tomas@realityvizual.cz">tomas@realityvizual.cz</a>.</p>
 </main>
-
-<!-- ======================= PATIČKA ======================= -->
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-top">
-      <a href="#top" class="brand">
-        <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 489 419"><path class="lm-lime" d="M226.1 321.0L197.7 320.5L169.5 262.5L141.2 204.5L122.1 204.2L103.0 204.0L103.0 262.5L103.0 321.0L51.5 321.0L0.0 321.0L0.0 160.5L0.0 0.0L100.2 0.0C160.3 0.0 204.8 0.4 211.2 1.0C242.2 4.0 268.5 17.3 284.6 38.2C287.0 41.3 291.0 47.8 293.4 52.7C301.8 69.6 304.5 82.7 303.7 103.1C303.1 121.2 299.6 133.3 290.8 148.5C283.0 161.8 268.7 174.6 252.4 182.5C247.2 185.1 243.0 187.4 243.0 187.7C243.0 188.0 258.8 217.8 278.0 254.0C297.2 290.2 313.0 320.0 313.0 320.4C313.0 321.2 259.6 321.6 226.1 321.0Z M182.1 130.4C187.6 127.8 193.2 122.5 196.2 116.7C198.1 113.2 198.5 110.9 198.5 103.0C198.5 92.1 196.9 88.1 190.3 81.9C181.9 74.0 185.0 74.5 141.8 74.2L103.0 73.9L103.0 103.5L103.0 133.1L140.2 132.8C175.8 132.5 177.7 132.4 182.1 130.4Z"/><path class="lm-ink" d="M272.1 370.5C262.7 343.8 255.0 321.7 255.0 321.5C255.0 321.2 268.1 321.0 284.0 321.0C299.9 321.0 313.0 320.7 313.0 320.4C313.0 320.0 297.2 290.2 278.0 254.0C258.8 217.8 243.0 188.0 243.0 187.7C243.0 187.4 247.2 185.1 252.4 182.5C257.6 180.0 264.7 175.7 268.2 173.1C274.7 168.1 284.8 158.0 286.7 154.5C287.4 153.4 288.1 152.7 288.3 153.0C288.6 153.3 300.6 192.7 315.0 240.5C329.4 288.4 341.4 327.7 341.6 328.0C341.9 328.2 342.4 327.9 342.8 327.3C343.2 326.7 355.9 285.2 371.0 235.1L398.5 144.0L443.6 144.0L488.7 144.0L440.1 281.5L391.6 419.0L340.4 419.0L289.3 419.0L272.1 370.5Z"/></svg>
-      </span>
-        <span class="brand-txt"><b>RealityVizual</b><small>Video z fotek pro realitní makléře</small></span>
-      </a>
-      <nav class="foot-nav" aria-label="Patička">
-        <a href="mailto:ahoj@realityvizual.cz">ahoj@realityvizual.cz</a>
-      </nav>
-    </div>
-    <div class="foot-bottom">
-      <span>© <span id="year">2026</span> RealityVizual</span>
-    </div>
-  </div>
-</footer>
-
-<!-- ======================= PRODEJNÍ KVÍZ / OBJEDNÁVKA ======================= -->
-<div class="quiz-overlay" id="quiz" hidden>
-  <div class="quiz-panel" role="dialog" aria-modal="true" aria-label="Objednávka prvního videa za 497 Kč">
-
-    <header class="quiz-head">
-      <div class="quiz-head-top">
-        <span class="quiz-badge">První video · 497 Kč</span>
-        <button type="button" class="quiz-close" data-quiz-close aria-label="Zavřít objednávku">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
-      <div class="quiz-prog-track" role="presentation">
-        <span class="quiz-prog-fill" id="quiz-fill"></span>
-      </div>
-      <p class="quiz-step-label" aria-live="polite">Krok <span id="quiz-cur">1</span> z 5</p>
-    </header>
-
-    <div class="quiz-body">
-
-      <!-- 1 -->
-      <section class="quiz-step is-active" data-step="1">
-        <h2 class="quiz-q" id="quiz-heading">Jaká nemovitost to je?</h2>
-        <p class="quiz-help">Podle typu volíme tempo střihu a hudbu.</p>
-        <div class="quiz-options quiz-options--two">
-          <button type="button" class="quiz-opt" data-q="typ" data-value="Byt"><span class="quiz-opt-main">Byt</span></button>
-          <button type="button" class="quiz-opt" data-q="typ" data-value="Rodinný dům"><span class="quiz-opt-main">Rodinný dům</span></button>
-          <button type="button" class="quiz-opt" data-q="typ" data-value="Komerční prostor"><span class="quiz-opt-main">Komerční prostor</span></button>
-          <button type="button" class="quiz-opt" data-q="typ" data-value="Pozemek nebo jiné"><span class="quiz-opt-main">Pozemek nebo jiné</span></button>
-        </div>
-      </section>
-
-      <!-- 2 -->
-      <section class="quiz-step" data-step="2">
-        <h2 class="quiz-q">Kam video poputuje?</h2>
-        <p class="quiz-help">Formát určuje, jak budete fotit. Návod pošleme podle vaší volby.</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-opt" data-q="format" data-value="Na šířku 16:9 (web a portály)">
-            <span class="quiz-opt-main">Na web a realitní portály</span>
-            <span class="quiz-opt-sub">Formát na šířku 16:9. Klasika pro Sreality i váš web.</span>
-          </button>
-          <button type="button" class="quiz-opt" data-q="format" data-value="Na výšku 9:16 (sociální sítě)">
-            <span class="quiz-opt-main">Na sociální sítě</span>
-            <span class="quiz-opt-sub">Formát na výšku 9:16. Pro Instagram, Facebook a TikTok.</span>
-          </button>
-          <button type="button" class="quiz-opt" data-q="format" data-value="Obojí (16:9 i 9:16)">
-            <span class="quiz-opt-main">Na obojí</span>
-            <span class="quiz-opt-sub">Oba formáty z jednoho focení.</span>
-            <span class="quiz-tag">Nejčastější volba</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- 3 -->
-      <section class="quiz-step" data-step="3">
-        <h2 class="quiz-q">Máte už nemovitost nafocenou?</h2>
-        <p class="quiz-help">Ať víme, jestli můžeme začít hned, nebo vám nejdřív pošleme návod.</p>
-        <div class="quiz-options">
-          <button type="button" class="quiz-opt" data-q="fotky" data-value="Fotky mám připravené">
-            <span class="quiz-opt-main">Ano, fotky mám</span>
-            <span class="quiz-opt-sub">Začneme, jakmile je pošlete.</span>
-          </button>
-          <button type="button" class="quiz-opt" data-q="fotky" data-value="Bude fotit v nejbližších dnech">
-            <span class="quiz-opt-main">Budu fotit v nejbližších dnech</span>
-            <span class="quiz-opt-sub">Pošleme vám návod, ať máte správné záběry.</span>
-          </button>
-          <button type="button" class="quiz-opt" data-q="fotky" data-value="Potřebuje pomoct s focením">
-            <span class="quiz-opt-main">Ještě nevím, jak na to</span>
-            <span class="quiz-opt-sub">Provedeme vás focením krok za krokem.</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- 4 -->
-      <section class="quiz-step" data-step="4">
-        <h2 class="quiz-q">Kolik nemovitostí nabízíte měsíčně?</h2>
-        <p class="quiz-help">Podle objemu vám doporučíme balíček. Teď platíte jen za první video za 497 Kč.</p>
-        <div class="quiz-options quiz-options--two">
-          <button type="button" class="quiz-opt" data-q="objem" data-value="1–2 měsíčně"><span class="quiz-opt-main">1–2</span></button>
-          <button type="button" class="quiz-opt" data-q="objem" data-value="3–5 měsíčně"><span class="quiz-opt-main">3–5</span></button>
-          <button type="button" class="quiz-opt" data-q="objem" data-value="6–10 měsíčně"><span class="quiz-opt-main">6–10</span></button>
-          <button type="button" class="quiz-opt" data-q="objem" data-value="Víc než 10 měsíčně"><span class="quiz-opt-main">Víc než 10</span></button>
-        </div>
-      </section>
-
-      <!-- 5 -->
-      <section class="quiz-step" data-step="5">
-        <h2 class="quiz-q">Kam vám máme video poslat?</h2>
-        <p class="quiz-help">Ozveme se obvykle do pár hodin a pošleme podklady k focení i k platbě.</p>
-
-        <div class="quiz-recap">
-          <dl>
-            <div class="row"><dt>Nemovitost</dt><dd id="recap-typ">-</dd></div>
-            <div class="row"><dt>Formát</dt><dd id="recap-format">-</dd></div>
-            <div class="row"><dt>Fotky</dt><dd id="recap-fotky">-</dd></div>
-            <div class="row"><dt>Objem</dt><dd id="recap-objem">-</dd></div>
-          </dl>
-          <p class="quiz-tip" id="quiz-tip"></p>
-        </div>
-
-        <form class="quiz-fields" id="quiz-form" name="objednavka" method="POST"
-              data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="objednavka">
-          <p hidden><label>Nevyplňujte toto pole: <input name="bot-field"></label></p>
-
-          <!-- odpovědi z kvízu, doplní je JS před odesláním -->
-          <input type="hidden" name="typ" id="q-typ">
-          <input type="hidden" name="format" id="q-format">
-          <input type="hidden" name="fotky" id="q-fotky">
-          <input type="hidden" name="objem" id="q-objem">
-
-          <div class="quiz-field">
-            <label for="q-jmeno">Jméno a příjmení</label>
-            <input type="text" id="q-jmeno" name="jmeno" autocomplete="name" required>
-          </div>
-          <div class="quiz-field">
-            <label for="q-email">E-mail</label>
-            <input type="email" id="q-email" name="email" autocomplete="email" required>
-          </div>
-          <div class="quiz-field">
-            <label for="q-tel">Telefon <span>(nepovinné)</span></label>
-            <input type="tel" id="q-tel" name="telefon" autocomplete="tel">
-          </div>
-          <p class="quiz-error" id="quiz-error" hidden></p>
-          <button type="submit" class="btn btn-primary">Odeslat objednávku za 497 Kč</button>
-          <p class="quiz-consent">Odesláním souhlasíte, že vás budeme kontaktovat k této objednávce. Údaje nepoužijeme k ničemu jinému.</p>
-        </form>
-      </section>
-
-      <!-- hotovo -->
-      <section class="quiz-step" data-step="6">
-        <div class="quiz-done">
-          <div class="quiz-done-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17 19 7"/></svg>
-          </div>
-          <h2 class="quiz-q">Máme to. Ozveme se do pár hodin.</h2>
-          <p class="quiz-help">Objednávku jsme zaznamenali. Takhle to bude pokračovat:</p>
-          <ol class="quiz-next">
-            <li><span class="n">1</span> Potvrdíme objednávku e-mailem a pošleme podklady k platbě.</li>
-            <li><span class="n">2</span> Dostanete návod na focení přesně pro váš formát.</li>
-            <li><span class="n">3</span> Jakmile pošlete fotky, máte video do 48 hodin.</li>
-          </ol>
-          <button type="button" class="btn btn-primary quiz-done-close" data-quiz-close>Zavřít</button>
-        </div>
-      </section>
-
-    </div>
-
-    <footer class="quiz-foot">
-      <button type="button" class="quiz-back" id="quiz-back" hidden>
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-        Zpět
-      </button>
-      <p class="quiz-foot-note">Platbu vyřídíme až po potvrzení objednávky.</p>
-    </footer>
-
-  </div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
